@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Deploying to AWS
 
-## Getting Started
+To deploy the application to AWS you need to have an AWS account set up with an Iam user so you can use your own credentials. You will need to add your aws key id and access key to you `~/.aws/credentials` file, as below
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+[default]
+aws_access_key_id = 
+aws_secret_access_key = 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then you can run the following to spin your infrastructure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npx sst dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+You should be able to see the sst console on [https://console.sst.dev/local/sst-predict5-project/dev](https://console.sst.dev/local/sst-predict5-project/dev)
 
-## Learn More
+## Deleting the stack
 
-To learn more about Next.js, take a look at the following resources:
+Make sure to remove the stack when not actively developing.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+npx sst remove
+```
